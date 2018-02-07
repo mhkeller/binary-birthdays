@@ -44,7 +44,6 @@ var rects = svg.append('g')
   .attr('stroke', '#ccc')
   .selectAll('rect')
   .data(function (d) {
-    console.log('list', d3.timeDays(new Date(d, 0, 1), new Date(d + 1, 0, 1)));
     return d3.timeDays(new Date(d, 0, 1), new Date(d + 1, 0, 1));
   }).enter();
 
@@ -60,7 +59,7 @@ rects.append('rect')
   })
   .on('mouseover', d => {
     var bisectResult = search(rects.data(), d);
-    console.log(d, bisectResult.passes);
+    console.log(`${d3.timeFormat('%b %d')(d)} requires ${bisectResult.passes} passes`);
   });
 
 svg.append('g')

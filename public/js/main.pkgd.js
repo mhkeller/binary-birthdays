@@ -5072,7 +5072,6 @@ svg.append('text').attr('transform', 'translate(-6,' + cellSize * 3.5 + ')rotate
 
 // rect
 var rects = svg.append('g').attr('fill', 'none').attr('stroke', '#ccc').selectAll('rect').data(function (d) {
-  console.log('list', days(new Date(d, 0, 1), new Date(d + 1, 0, 1)));
   return days(new Date(d, 0, 1), new Date(d + 1, 0, 1));
 }).enter();
 
@@ -5087,7 +5086,7 @@ rects.append('rect').attr('width', cellSize).attr('height', cellSize).attr('x', 
   return color(bisectResult.passes);
 }).on('mouseover', function (d) {
   var bisectResult = search(rects.data(), d);
-  console.log(d, bisectResult.passes);
+  console.log(timeFormat('%b %d')(d) + ' requires ' + bisectResult.passes + ' passes');
 });
 
 svg.append('g').attr('fill', 'none').attr('stroke', '#000').selectAll('path').data(function (d) {
