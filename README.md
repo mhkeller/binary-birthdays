@@ -5,6 +5,6 @@ Binary Birthdays
 
 ### [View live](https://mhkeller.github.io/binary-birthdays)
 
-Lighter colors are fewer passes. Darker colors require more. Minimum passes is 0, which is the case for July 2nd. The max is 9 passes.
+Lighter colored rectangles mean that date needs fewer passes. Darker colored rectangles mean more. Minimum passes is 0, which is the case for July 2nd. The max is 9 passes.
 
 ![](src/img/heatmap.png)
