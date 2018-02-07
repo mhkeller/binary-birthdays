@@ -2736,8 +2736,6 @@ function type(t) {
   return {type: t};
 }
 
-// Ignore right-click, since that should open the context menu.
-
 var pi$1 = Math.PI;
 
 var pi$2 = Math.PI;
@@ -3512,6 +3510,7 @@ var formatTypes = {
   "x": function(x) { return Math.round(x).toString(16); }
 };
 
+// [[fill]align][sign][symbol][0][width][,][.precision][type]
 var re = /^(?:(.)?([<>=^]))?([+\-\( ])?([$#])?(0)?(\d+)?(,)?(\.\d+)?([a-z%])?$/i;
 
 function formatSpecifier(specifier) {
@@ -3778,7 +3777,7 @@ var areaSum = adder();
 
 var deltaSum = adder();
 
-// Returns the signed angle of a cartesian point relative to [cosRadius, 0, 0].
+// Generates a circle centered at [0°, 0°], with a given radius and precision.
 
 var sum$1 = adder();
 
@@ -3798,9 +3797,6 @@ var array$2 = Array.prototype;
 
 
 var slice$5 = array$2.slice;
-
-// deinterpolate(a, b)(x) takes a domain value x in [a,b] and returns the corresponding parameter t in [0,1].
-// reinterpolate(a, b)(t) takes a parameter t in [0,1] and returns the corresponding domain value x in [a,b].
 
 var tickFormat = function(domain, count, specifier) {
   var start = domain[0],
@@ -5014,8 +5010,6 @@ ReflectContext.prototype = {
   lineTo: function(x, y) { this._context.lineTo(y, x); },
   bezierCurveTo: function(x1, y1, x2, y2, x, y) { this._context.bezierCurveTo(y1, x1, y2, x2, y, x); }
 };
-
-// Liang–Barsky line clipping.
 
 function search(list, target) {
   // if (!list instanceof Array) {
